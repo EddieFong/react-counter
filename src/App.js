@@ -8,7 +8,7 @@ class App extends Component {
   
 state= {
   number: this.props.defaultNum,
-  numberArray: [{}]
+  numberArray: new Array(this.props.defaultNum).fill({})
 }
 
   alertFunction = () => {
@@ -19,19 +19,40 @@ state= {
      this.setState(
       {
         number: this.props.newFunction(this.state.number),
-        numberArray: new Array(this.state.number).fill(0)
+        numberArray: new Array(this.state.number).fill({})
       }
     )
   }
 
+  numberPlug1Function = () => {
+    this.setState(
+     {
+       number: this.state.number + 1,
+       numberArray: new Array(this.state.number).fill({})
+     }
+   )
+ }
+
+ numberMinus1Function = () => {
+  this.setState(
+   {
+     number: this.state.number - 1,
+     numberArray: new Array(this.state.number).fill({})
+   }
+ )
+}
+
   render() {
     return (
       <div className="App">
-        <button onClick = {this.numberFunction} >
+        <button onClick = {this.numberMinus1Function} >
           -1
         </button>
-        <button onClick = {this.numberFunction}>
+        <button onClick = {this.numberPlug1Function}>
           +1
+        </button>
+        <button onClick = {this.numberFunction}>
+          +2
         </button>
         <span>
           <Number></Number> {this.state.number}
