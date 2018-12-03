@@ -12,13 +12,13 @@ state= {number: this.props.defaultNum}
   }
 
   numberFunction = () => {
-     this.setState({number: this.state.number + 1})
+     this.setState({number: this.props.newFunction(this.state.number)})
   }
 
   render() {
     return (
       <div className="App">
-        <button onClick = {this.alertFunction}>
+        <button onClick = {this.numberFunction} >
           Hello world!
         </button>
         <button onClick = {this.numberFunction}>
