@@ -1,63 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Line from "./components/Line.js"
-import Number from "./components/Number.js"
+import CounterGroup from "./components/CounterGroup.js";
 
 class App extends Component {
-  
-state= {
-  number: this.props.defaultNum,
-  numberArray: new Array(this.props.defaultNum).fill({})
-}
-
-  alertFunction = () => {
-    alert("now you know how to handle onclick event");
-  }
-
-  numberFunction = () => {
-     this.setState(
-      {
-        number: this.props.newFunction(this.state.number),
-        numberArray: new Array(this.state.number).fill({})
-      }
-    )
-  }
-
-  numberPlug1Function = () => {
-    this.setState(
-     {
-       number: this.state.number + 1,
-       numberArray: new Array(this.state.number).fill({})
-     }
-   )
- }
-
- numberMinus1Function = () => {
-  this.setState(
-   {
-     number: this.state.number - 1,
-     numberArray: new Array(this.state.number).fill({})
-   }
- )
-}
-
+    
   render() {
     return (
       <div className="App">
-        <button onClick = {this.numberMinus1Function} >
-          -1
-        </button>
-        <button onClick = {this.numberPlug1Function}>
-          +1
-        </button>
-        <button onClick = {this.numberFunction}>
-          +2
-        </button>
-        <span>
-          <Number></Number> {this.state.number}
-        </span>
-        {this.state.numberArray.map(() => (<Line></Line>))}
+        <CounterGroup defaultNum = {0} size ={5}></CounterGroup>
       </div>
     );
   }
