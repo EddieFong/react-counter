@@ -5,7 +5,7 @@ import './App.css';
 
 class App extends Component {
   
-state= {number: 0}
+state= {number: this.props.defaultNum}
 
   alertFunction = () => {
     alert("now you know how to handle onclick event");
