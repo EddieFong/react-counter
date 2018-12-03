@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Line from "./components/Line.js"
 
 class App extends Component {
   
-state= {number: this.props.defaultNum}
+state= {
+  number: this.props.defaultNum,
+  numberArray: [{}]
+}
 
   alertFunction = () => {
     alert("now you know how to handle onclick event");
   }
 
   numberFunction = () => {
-     this.setState({number: this.props.newFunction(this.state.number)})
+     this.setState(
+      {
+        number: this.props.newFunction(this.state.number),
+        numberArray: new Array(this.state.number).fill(0)
+      }
+    )
   }
 
   render() {
@@ -27,6 +35,7 @@ state= {number: this.props.defaultNum}
         <span>
           Number: {this.state.number}
         </span>
+        {this.state.numberArray.map(() => (<Line></Line>))}
       </div>
     );
   }
