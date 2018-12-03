@@ -7,8 +7,11 @@ class App extends Component {
     return (
       <div className="App">
         <button>
-          Hello world!: 0
+          Hello world!
         </button>
+        <span>
+          Number: 0
+        </span>
       </div>
     );
   }
