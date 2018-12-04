@@ -8,19 +8,19 @@ export default class Counter extends Component {
     numberPlug1Function = () => {
         this.setState(
             {
-                number: this.state.number + 1,
-                numberArray: new Array(this.state.number).fill({})
+                number: this.state.number + 1
             }
         )
+        this.props.onUpdate(1)
     }
 
     numberMinus1Function = () => {
         this.setState(
             {
-                number: this.state.number - 1,
-                numberArray: new Array(this.state.number).fill({})
+                number: this.state.number - 1
             }
         )
+        this.props.onUpdate(-1)
     }
 
     render() {
