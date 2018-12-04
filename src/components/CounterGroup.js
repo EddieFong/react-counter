@@ -9,7 +9,7 @@ export default class CounterGroup extends Component {
         this.state = {
             defaultNum: defaultNum,
             sum: defaultNum * this.props.size,
-            numberArray: new Array(this.props.size).fill({})
+            numberArray: new Array(this.props.size).fill(0)
         }
     }
 
@@ -18,9 +18,10 @@ export default class CounterGroup extends Component {
     }
 
   render() {
+    let numberArray = new Array(this.props.size).fill(0)
     return (
-      <div>
-          {this.state.numberArray.map((_,i) => (<Counter key = {i} onUpdate = {this.updateSum} defaultNum = {this.state.defaultNum}></Counter>))}
+      <div>      
+          {numberArray.map((_,i) => (<Counter key = {i} onUpdate = {this.updateSum} defaultNum = {this.state.defaultNum}></Counter>))}
           sum = {this.state.sum}
       </div>
       
