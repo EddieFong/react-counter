@@ -29,12 +29,12 @@ export default class Counter extends Component {
                 <button onClick={this.numberMinus1Function} >
                     -1
                 </button>
-                <button onClick={this.numberPlug1Function}>
-                    +1
-                </button>
                 <span>
                     <Number></Number> {this.state.number}
                 </span>
+                <button onClick={this.numberPlug1Function}>
+                    +1
+                </button>
             </div>
         )
     }
