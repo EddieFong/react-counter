@@ -3,15 +3,14 @@ import Counter from "./Counter.js";
 
 export default class CounterGroup extends Component {
 
-    // constructor(){
-    //     super()
-    //     alert(this.state)
-    // }
-
-    state = {
-        defaultNum: 0,
-        sum: 0 * this.props.size,
-        numberArray: new Array(this.props.size).fill({})
+    constructor(props){
+        super(props)
+        let defaultNum = 1
+        this.state = {
+            defaultNum: defaultNum,
+            sum: defaultNum * this.props.size,
+            numberArray: new Array(this.props.size).fill({})
+        }
     }
 
     updateSum = (d) => {
