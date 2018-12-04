@@ -3,12 +3,12 @@ import Number from "./Number.js"
 
 export default class Counter extends Component {
     numberPlug1Function = () => {
-        this.props.updateIndiv(1)
+        this.props.updateIndiv(1, this.props.id)
         this.props.onUpdate(1)
     }
 
     numberMinus1Function = () => {
-        this.props.updateIndiv(-1)
+        this.props.updateIndiv(-1, this.props.id)
         this.props.onUpdate(-1)
     }
 

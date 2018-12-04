@@ -9,37 +9,45 @@ export default class CounterGroup extends Component {
         this.state = {
             defaultNum: defaultNum,
             sum: defaultNum * this.props.size,
-            numberArray: new Array(this.props.size).fill(0),
-            counterNum: 0,
+            numberArray: new Array(this.props.size).fill(0).map(() => {
+                return {
+                    id: Math.random()*1000,
+                    countNum: defaultNum
+                }
+            }),
         }
     }
 
     updateSum = (d) => {
         this.setState({
-            defaultNum: this.state.defaultNum,
-            counterNum: this.state.counterNum + d,
-            sum:this.state.sum + d,
+            sum: this.state.sum + d,
         });
     }
 
-    updateIndiv = (d) => {
-        this.setState({
-            defaultNum: this.state.defaultNum,
-            counterNum: this.state.counterNum + d,
-            sum: this.state.sum,
+    updateIndiv = (d, id) => {
+        let newCounters = this.state.numberArray.map((item) => {
+            if (id === item.id){
+                return {
+                    id: item.id,
+                    countNum: item.countNum + d
+                }
+            } else {
+                return item
+            }
         })
+        this.setState({numberArray: newCounters})
     }
   render() {
-    let numberArray = new Array(this.props.size).fill(0)
     return (
         <div>{
-            numberArray.map((_,i) => (
+            this.state.numberArray.map((item,i) => (
                 <Counter 
                     key = {i} 
                     onUpdate = {this.updateSum} 
                     defaultNum = {this.state.defaultNum}
                     updateIndiv = {this.updateIndiv}
-                    counterNum = {this.state.counterNum}
+                    counterNum = {item.countNum}
+                    id = {item.id}
                 ></Counter>)
             )
             }

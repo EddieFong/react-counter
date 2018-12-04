@@ -5,7 +5,7 @@ import CounterGroup from "./components/CounterGroup.js";
 import Input from "./components/Input.js";
 
 class App extends Component {
-  state = {size: 0}
+  state = {size: 5}
 
   updateValue = (targetValue) => {
     // alert(targetValue)
@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <Input size = {this.state.size}  updateValue = {this.updateValue}></Input>
-        <CounterGroup size={parseInt(this.state.size)}></CounterGroup>
+        <CounterGroup key={Math.random()} size={parseInt(this.state.size)}></CounterGroup>
       </div>
     );
   }
